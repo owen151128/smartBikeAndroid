@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">smartBike</string>
+    <string name="splash_text">안전한 자전거 주행을 위한 솔루션</string>
+    <string name="main_title">SmartBike</string>
+    <string name="load_text">필요한 정보를 불러오고 있습니다.</string>
+    <string name="team_name">TEAM UBD</string>
+    <string name="member_name">심상민 신희상 윤찬혁</string>
+    <string name="temperature">°C</string>
 </resources>
