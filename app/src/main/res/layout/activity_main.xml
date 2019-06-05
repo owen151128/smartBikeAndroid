@@ -10,7 +10,8 @@
         android:id="@+id/main_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/main_title_background"
+        android:background="@drawable/title_bg"
+        android:fontFamily="@font/title_font"
         android:gravity="center"
         android:text="@string/main_title"
         android:textColor="@color/colorAccent"
@@ -67,6 +68,7 @@
         android:textSize="20pt" />
 
     <LinearLayout
+        android:id="@+id/main_bottom_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/weather_text"
@@ -74,8 +76,8 @@
 
         <com.cardiomood.android.controls.gauge.SpeedometerGauge
             android:id="@+id/speed_meter"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
     </LinearLayout>
 
 </RelativeLayout>
