@@ -3,8 +3,12 @@ package kr.owens.smartBike.ui;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+
+import java.lang.ref.WeakReference;
 
 import kr.owens.smartBike.R;
 import kr.owens.smartBike.databinding.ActivitySplashBinding;
@@ -16,6 +20,8 @@ public class SplashActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         splashBinding = DataBindingUtil.setContentView(this, R.layout.activity_splash);
+        InvisibleHandler invisibleHandler = new InvisibleHandler(this);
+        IntentHandler intentHandler = new IntentHandler(this);
 
         Thread thread = new Thread(() -> {
             try {
@@ -24,19 +30,60 @@ public class SplashActivity extends AppCompatActivity {
                 e.printStackTrace();
             }
 
-            findViewById(R.id.load_progress).setVisibility(View.INVISIBLE);
-            findViewById(R.id.load_text).setVisibility(View.INVISIBLE);
+            invisibleHandler.sendMessage(new Message());
 
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            startActivity(new Intent(SplashActivity.this, MainActivity.class));
-            finish();
+            intentHandler.sendMessage(new Message());
         });
 
         thread.start();
     }
 
+    private void invisibleUI() {
+        splashBinding.loadProgress.setVisibility(View.INVISIBLE);
+        splashBinding.loadText.setVisibility(View.INVISIBLE);
+    }
+
+    private void loadMainActivity() {
+        startActivity(new Intent(SplashActivity.this, MainActivity.class));
+        finish();
+    }
+
+    private static class InvisibleHandler extends Handler {
+        private final WeakReference<SplashActivity> activity;
+
+        InvisibleHandler(SplashActivity activity) {
+            this.activity = new WeakReference<>(activity);
+        }
+
+        @Override
+        public void handleMessage(Message msg) {
+            SplashActivity splashActivity = activity.get();
+
+            if (splashActivity != null) {
+                splashActivity.invisibleUI();
+            }
+        }
+    }
+
+    private static class IntentHandler extends Handler {
+        private final WeakReference<SplashActivity> activity;
+
+        IntentHandler(SplashActivity activity) {
+            this.activity = new WeakReference<>(activity);
+        }
+
+        @Override
+        public void handleMessage(Message msg) {
+            SplashActivity splashActivity = activity.get();
+
+            if (splashActivity != null) {
+                splashActivity.loadMainActivity();
+            }
+        }
+    }
 }
