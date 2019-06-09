@@ -29,7 +29,7 @@
             android:layout_height="match_parent"
             android:layout_marginStart="7.5dp"
             android:layout_weight="50"
-            android:src="@drawable/flash_off"
+            android:src="@drawable/guard_off_icon"
             tools:ignore="ContentDescription" />
 
         <ImageView
