@@ -1,90 +1,100 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/colorPrimary"
     tools:context=".ui.SplashActivity">
 
-    <LinearLayout
-        android:id="@+id/center_layout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@id/load_progress"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="69.5dp"
-        android:orientation="vertical">
+    <data>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="@string/main_title"
-            android:textColor="@color/colorAccent"
-            android:textSize="28pt"
-            android:textStyle="bold" />
+        <variable
+            name="splash"
+            type="kr.owens.smartBike.ui.SplashActivity" />
+    </data>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/splash_text"
-            android:textColor="@color/colorAccent"
-            android:textSize="10pt" />
-
-    </LinearLayout>
-
-    <ProgressBar
-        android:id="@+id/load_progress"
-        android:layout_width="59dp"
-        android:layout_height="59dp"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:layout_marginTop="41.3dp" />
-
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/load_progress"
-        android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/load_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_weight="7"
-            android:gravity="center"
-            android:text="@string/load_text"
-            android:textColor="@color/colorAccent"
-            android:textSize="8pt" />
+        android:background="@color/colorPrimary">
 
         <LinearLayout
-            android:id="@+id/bottom_layout"
+            android:id="@+id/center_layout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_weight="3"
-            android:gravity="center"
+            android:layout_above="@id/load_progress"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="69.5dp"
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/team_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="@string/team_name"
+                android:text="@string/main_title"
                 android:textColor="@color/colorAccent"
-                android:textSize="10pt" />
+                android:textSize="28pt"
+                android:textStyle="bold" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="4dp"
-                android:text="@string/member_name"
+                android:text="@string/splash_text"
                 android:textColor="@color/colorAccent"
-                android:textSize="6.5pt" />
+                android:textSize="10pt" />
 
         </LinearLayout>
-    </LinearLayout>
-</RelativeLayout>
+
+        <ProgressBar
+            android:id="@+id/load_progress"
+            android:layout_width="59dp"
+            android:layout_height="59dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="41.3dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/load_progress"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/load_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="7"
+                android:gravity="center"
+                android:text="@string/load_text"
+                android:textColor="@color/colorAccent"
+                android:textSize="8pt" />
+
+            <LinearLayout
+                android:id="@+id/bottom_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="3"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/team_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="@string/team_name"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="10pt" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="4dp"
+                    android:text="@string/member_name"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="6.5pt" />
+
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+</layout>
