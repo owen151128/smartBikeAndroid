@@ -1,92 +1,108 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/colorAccent"
     tools:context=".ui.MainActivity">
 
-    <TextView
-        android:id="@+id/main_title"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/title_bg"
-        android:fontFamily="@font/title_font"
-        android:gravity="center"
-        android:text="@string/main_title"
-        android:textColor="@color/colorAccent"
-        android:textSize="17pt" />
+    <data>
 
-    <LinearLayout
-        android:id="@+id/top"
-        android:layout_width="match_parent"
-        android:layout_height="190dp"
-        android:layout_below="@id/main_title">
+        <variable
+            name="main"
+            type="kr.owens.smartBike.ui.MainActivity" />
+    </data>
 
-        <ImageView
-            android:id="@+id/flash_button"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginStart="7.5dp"
-            android:layout_weight="50"
-            android:src="@drawable/guard_off_icon"
-            tools:ignore="ContentDescription" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginStart="7.5dp"
-            android:layout_marginEnd="7.5dp"
-            android:layout_weight="50"
-            android:src="@drawable/gps_button"
-            tools:ignore="ContentDescription" />
-    </LinearLayout>
-
-    <ImageView
-        android:id="@+id/weather_bg"
-        android:layout_width="match_parent"
-        android:layout_height="190dp"
-        android:layout_below="@id/top"
-        android:layout_marginStart="7.5dp"
-        android:layout_marginTop="5.8dp"
-        android:layout_marginEnd="7.5dp"
-        android:scaleType="fitXY"
-        android:src="@drawable/weather_bg"
-        tools:ignore="ContentDescription" />
-
-    <TextView
-        android:id="@+id/weather_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignStart="@id/weather_bg"
-        android:layout_alignTop="@id/weather_bg"
-        android:layout_alignEnd="@id/weather_bg"
-        android:layout_alignBottom="@id/weather_bg"
-        android:layout_marginStart="11.3dp"
-        android:text="@string/temperature"
-        android:textColor="@color/colorAccent"
-        android:textSize="20pt" />
-
-    <ImageView
-        android:layout_width="37dp"
-        android:layout_height="37dp"
-        android:layout_alignTop="@id/weather_bg"
-        android:layout_alignEnd="@id/weather_bg"
-        android:layout_marginTop="8.5dp"
-        android:layout_marginEnd="8.5dp"
-        android:src="@drawable/temp_refresh" />
-
-    <LinearLayout
-        android:id="@+id/main_bottom_layout"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/weather_text"
-        android:gravity="center">
+        android:background="@color/colorAccent">
 
-        <com.cardiomood.android.controls.gauge.SpeedometerGauge
-            android:id="@+id/speed_meter"
+        <TextView
+            android:id="@+id/main_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/title_bg"
+            android:fontFamily="@font/title_font"
+            android:gravity="center"
+            android:text="@string/main_title"
+            android:textColor="@color/colorAccent"
+            android:textSize="17pt" />
+
+        <LinearLayout
+            android:id="@+id/top"
+            android:layout_width="match_parent"
+            android:layout_height="190dp"
+            android:layout_below="@id/main_title"
+            android:layout_marginTop="10dp">
+
+            <ImageView
+                android:id="@+id/defense_button"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginStart="7.5dp"
+                android:layout_weight="50"
+                android:onClick="@{main::onDefenseButtonClicked}"
+                android:src="@drawable/guard_off_icon"
+                tools:ignore="ContentDescription" />
+
+            <ImageView
+                android:id="@+id/gps_button"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginStart="7.5dp"
+                android:layout_marginEnd="7.5dp"
+                android:layout_weight="50"
+                android:onClick="@{main::onGpsButtonClicked}"
+                android:src="@drawable/gps_button"
+                tools:ignore="ContentDescription" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/weather_bg"
+            android:layout_width="match_parent"
+            android:layout_height="190dp"
+            android:layout_below="@id/top"
+            android:layout_marginStart="7.5dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="7.5dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/weather_bg"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/weather_text"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-    </LinearLayout>
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@id/weather_bg"
+            android:layout_alignTop="@id/weather_bg"
+            android:layout_alignEnd="@id/weather_bg"
+            android:layout_alignBottom="@id/weather_bg"
+            android:layout_marginStart="11.3dp"
+            android:text="@string/temperature"
+            android:textColor="@color/colorAccent"
+            android:textSize="20pt" />
 
-</RelativeLayout>
+        <ImageView
+            android:id="@+id/refresh_button"
+            android:layout_width="37dp"
+            android:layout_height="37dp"
+            android:layout_alignTop="@id/weather_bg"
+            android:layout_alignEnd="@id/weather_bg"
+            android:layout_marginTop="8.5dp"
+            android:layout_marginEnd="8.5dp"
+            android:onClick="@{main::onRefreshButtonClicked}"
+            android:src="@drawable/temp_refresh" />
+
+        <LinearLayout
+            android:id="@+id/main_bottom_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/weather_text"
+            android:gravity="center">
+
+            <com.cardiomood.android.controls.gauge.SpeedometerGauge
+                android:id="@+id/speed_meter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+    </RelativeLayout>
+</layout>

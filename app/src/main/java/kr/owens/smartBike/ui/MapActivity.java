@@ -29,12 +29,12 @@ public class MapActivity extends AppCompatActivity {
         if (permission != PackageManager.PERMISSION_GRANTED) {
             if (ActivityCompat.shouldShowRequestPermissionRationale(this,
                     Manifest.permission.ACCESS_FINE_LOCATION)) {
-                ToastUtil.show(getString(R.string.permission_request_message));
+                ToastUtil.show(getString(R.string.gps_permission_request_message));
             } else {
                 ActivityCompat.requestPermissions(this,
                         new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
                         REQUEST_GPS);
-                ToastUtil.show(getString(R.string.permission_request_message));
+                ToastUtil.show(getString(R.string.gps_permission_request_message));
             }
         } else {
             initializeMapView();
@@ -61,7 +61,7 @@ public class MapActivity extends AppCompatActivity {
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 initializeMapView();
             } else {
-                ToastUtil.show(getString(R.string.permission_request_message));
+                ToastUtil.show(getString(R.string.gps_permission_request_message));
             }
         }
     }

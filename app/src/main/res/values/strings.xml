@@ -6,5 +6,8 @@
     <string name="team_name">TEAM UBD</string>
     <string name="member_name">심상민 신희상 윤찬혁</string>
     <string name="temperature">°C</string>
-    <string name="permission_request_message">지도 를 사용하기 위해서는 위치 관련 권한 승인이 필요합니다.</string>
+    <string name="bluetooth_permission_request_message">아두이노 와 통신을 하기 위해서는 블루투스 관련 권한 승인이 필요합니다.</string>
+    <string name="gps_permission_request_message">지도 를 사용하기 위해서는 위치 관련 권한 승인이 필요합니다.</string>
+    <string name="select_dialog_title">SmartBike 디바이스를 선택해 주세요.</string>
+    <string name="weather_refresh_message">날씨 정보를 새로 불러왔습니다.</string>
 </resources>
